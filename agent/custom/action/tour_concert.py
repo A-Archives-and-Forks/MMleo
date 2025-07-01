@@ -48,7 +48,8 @@ class   TourConcert(CustomAction):
                         }
                     }
                 )
-                if i==3:
+                #所有的都需要失败信息
+                if i==3:#如果中途开始，BP调整会出现给最后一首歌选3的情况（因为没有建立对映）
                     context.run_task("Feat_巡演BP调整")#interface中修改切10的enable                 
                 else:
                     context.run_task("Feat_巡演BP调整_切3")#interface中修改其中关于BP回复的选项
@@ -56,23 +57,33 @@ class   TourConcert(CustomAction):
 
                 image = context.tasker.controller.post_screencap().wait().get()
                 key ="Feat_开始演唱会"
+
                 if context.run_recognition(key,image):
                     logger.info(f"即将开始第{j+1}轮,第{i+1}次打歌...")
-                    context.run_task(key)
+                    tour_check=context.run_task(key).nodes
                 else:
                     logger.warning(f"识别失败, 即将终止巡演打歌进程...")
                     return CustomAction.RunResult(success=True)
                 
+                if self.Check_Completed(tour_check,"Feat_BP回复") and not self.Check_Completed(tour_check,"Feat_BP回复_End"):
+                    #使用了BP回复但没有进入end
+                    logger.info(f"BP回复失败,即将终止巡演打歌进程...")
+                    return CustomAction.RunResult(success=True)
+                
+                elif self.Check_Completed(tour_check,"Flag_TourMap"):
+                    logger.info(f"已回到巡演地图,第{j+1}轮巡演打歌结束...")
+                    break
+
                 logger.info(f"第{j+1}轮巡演，第{i+1}次打歌结束...")
 
-                context.run_task("Entry_巡演后领取星光奖励")
-                if j<tour_count-1:context.run_task("Entry_TourMap",pipeline_override=
-                                                   {
-                                                       "巡演_custom启动":{
-                                                           "action": "DoNothing"
-                                                           }
+            context.run_task("Entry_巡演后领取星光奖励")
+            if j<tour_count-1:context.run_task("Entry_TourMap",pipeline_override=
+                                                {
+                                                    "巡演_custom启动":{
+                                                        "action": "DoNothing"
                                                         }
-                                                    )
+                                                    }
+                                                )
                 #回到循环开始状态
     def Check_Completed(self,run_detail,completed_node):
         '''
@@ -80,7 +91,7 @@ class   TourConcert(CustomAction):
             run_detail:[NodeDetail(...), NodeDetail(...), ...],run_task.nodes获取到的结构体数据
             completed_node:string 用来判断task成功与否的关键node的名字,并不一定是最后的node
         Returns:
-            bool
+            bool completed为true则返回true
         '''
         
         if not run_detail:

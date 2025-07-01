@@ -48,6 +48,61 @@
         ],
         "next": "Feat_Check自动_End"
     },
+    "Feat_自动组队": {
+        "doc": "需要已在组合选择界面",
+        "recognition": "OCR",
+        "roi": [
+            955,
+            459,
+            187,
+            72
+        ],
+        "expected": "^\\自动组队$",
+        "action": "Click",
+        "next": [
+            "自动组队_高级自动组队"
+        ],
+        "on_error": "Feat_自动组队_End"
+    },
+    "自动组队_高级自动组队": {
+        "doc": "高级自动组队",
+        "recognition": "OCR",
+        "roi": [
+            465,
+            0,
+            322,
+            152
+        ],
+        "expected": "^\\高级自动组队$",
+        "next": [
+            "Feat_自动组队_End"
+        ],
+        "interrupt": "高级自动组队_确认组队"
+    },
+    "高级自动组队_确认组队": {
+        "doc": "click确认组队",
+        "recognition": "OCR",
+        "roi": [
+            279,
+            527,
+            725,
+            193
+        ],
+        "expected": "^\\确认组队$",
+        "action": "Click",
+        "post_wait_freezes": 1000
+    },
+    "Feat_自动组队_End": {
+        "doc": "组合选择界面",
+        "recognition": "OCR",
+        "roi": [
+            955,
+            459,
+            187,
+            72
+        ],
+        "expected": "^\\自动组队$"
+    },
     "Feat_BP回复": {
         "doc": "有好几种情况,回头复现下找下图。interface中选择使用，并接入点击开始演唱会后的识别中，使用回复并开始按钮，别接action",
         "recognition": "OCR",
