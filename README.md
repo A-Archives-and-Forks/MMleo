@@ -23,7 +23,7 @@
 **MMleo** 是由 fictionalflaw 开发的游戏自动化工具，旨在帮助玩家完成每日任务，如签到、领取奖励以及在**简单难度**下自动星光演唱会等。  
 **注意：** 本项目仅提供每日任务及部分歌曲的自动化操作，不支持全自动打歌，部分功能仍在开发和完善中。  
 **注意：** 本项目推荐使用mumu、雷电模拟器，其他模拟器可能无法支撑**自动星光演唱会**功能的运行~~比如夜神~~。  
-**唯一指定b站官方**:[年少轻狂诗酒江湖](https://www.bilibili.com/video/BV1wX7VzTEvS/?spm_id_from=333.1387.homepage.video_card.click&vd_source=8eb24712df0b1ae337ab708afda573b1) ~~（私号公用了，只存指导手册，别关注啦）~~  
+**唯一指定b站官方**:[年少轻狂诗酒江湖](https://www.bilibili.com/video/BV1wX7VzTEvS) ~~（私号公用了，只存指导手册，别关注啦）~~  
 **唯一指定下载渠道**:[github主页](https://github.com/fictionalflaw/MMleo)  
 **唯一指定分发渠道**:[Mirror酱](https://mirrorchyan.com/zh/projects?rid=MMleo)  
 从指定下载和分发渠道外获取本项目程序，由此带来的问题本项目不承担任何责任。
