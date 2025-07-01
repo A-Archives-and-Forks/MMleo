@@ -83,7 +83,93 @@
     },
     "Feat_search巡演关卡": {
         "doc": "搜寻目标关卡，接受interface指定，或者自动找最后一个没打的关卡",
-        "next": "Flag_目标关卡_next"
+        "next": "Flag_目标关卡_next",
+        "interrupt": "search巡演关卡_向左01"
+    },
+    "search巡演关卡_向左01": {
+        "doc": "其实是右划，直到来到巡演地图最左端",
+        "roi": [
+            1066,
+            560,
+            187,
+            116
+        ],
+        "recognition": "OCR",
+        "expected": "^\\公演一览$",
+        "action": "Swipe",
+        "begin": [
+            149,
+            115,
+            70,
+            76
+        ],
+        "end": [
+            943,
+            139,
+            70,
+            76
+        ],
+        "post_wait_freezes": 1000,
+        "next": [
+            "search巡演关卡_向左01_01",
+            "search巡演关卡_向左01"
+        ]
+    },
+    "search巡演关卡_向左01_01": {
+        "doc": "找到01",
+        "roi": [
+            96,
+            196,
+            1184,
+            331
+        ],
+        "recognition": "TemplateMatch",
+        "template": "TourConcert/巡演01.png",
+        "next": "Flag_目标关卡_next",
+        "interrupt": "search巡演关卡_向右搜"
+    },
+    "search巡演关卡_向右搜": {
+        "doc": "左划，向右搜",
+        "roi": [
+            1066,
+            560,
+            187,
+            116
+        ],
+        "recognition": "OCR",
+        "expected": "^\\公演一览$",
+        "action": "Swipe",
+        "end": [
+            149,
+            115,
+            70,
+            76
+        ],
+        "begin": [
+            943,
+            139,
+            70,
+            76
+        ],
+        "duration": 1000,
+        "next": "search巡演关卡_纯点击"
+    },
+    "search巡演关卡_纯点击": {
+        "action": "Swipe",
+        "begin": [
+            149,
+            115,
+            70,
+            76
+        ],
+        "end": [
+            200,
+            115,
+            70,
+            76
+        ],
+        "duration": 500,
+        "post_wait_freezes": 1000
     },
     "Flag_目标关卡_next": {
         "doc": "目标关卡，interface中更改",
@@ -193,6 +279,11 @@
         "expected": [
             "演唱会组队01"
         ]
+    },
+    "终止巡演进程": {
+        "doc": "在custom中识别到该节点被执行，作为终止进程的信号",
+        "recognition": "DirectHit",
+        "focus": "即将终止巡演进程..."
     },
     "Feat_巡演BP调整": {
         "doc": "用于最后一首歌的BP调整,interface中选10就去切10修改enable",

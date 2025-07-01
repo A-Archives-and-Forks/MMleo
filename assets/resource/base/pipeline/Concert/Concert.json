@@ -114,12 +114,12 @@
         ],
         "expected": "回复并开始",
         "next": [
-            "Flag_道具回复_next",
+            "Flag_限时哨子回复_next",
             "Flag_钻石回复_next"
         ],
         "enabled": false
     },
-    "Flag_道具回复_next": {
+    "Flag_限时哨子回复_next": {
         "doc": "当前只识别哨子情况",
         "recognition": "TemplateMatch",
         "roi": [
@@ -130,7 +130,8 @@
         ],
         "template": "BP回复_只有哨子.png",
         "action": "Click",
-        "target": "Feat_BP回复"
+        "target": "Feat_BP回复",
+        "next": "Feat_BP回复_End"
     },
     "Flag_钻石回复_next": {
         "doc": "识别钻石回复的付费标志，必须启用，不想回复就不连接使用节点",
@@ -147,10 +148,11 @@
         "template": [
             "BP回复_有钻石.png",
             "BP回复_只有钻石.png"
-        ]
+        ],
+        "next": "钻石回复_使用"
     },
     "钻石回复_使用": {
-        "doc": "接在flag后面，interface中连接",
+        "doc": "Flag_钻石回复_next的使用节点",
         "roi": [
             500,
             476,
@@ -163,8 +165,10 @@
         "next": "Feat_BP回复_End"
     },
     "Feat_BP回复_End": {
-        "doc": "在interface中连接后续节点",
-        "next": []
+        "doc": "连接打歌",
+        "next": [
+            "Feat_打歌"
+        ]
     },
     "Feat_难度调整": {
         "doc": "需要哪个难度就在interface中修改Flag的template和'难度调整'node的expected",
@@ -626,16 +630,17 @@
         "expected": "开始演唱会",
         "action": "Click",
         "next": [
-            "Feat_打歌"
+            "Feat_打歌",
+            "Feat_BP回复"
         ],
         "interrupt": [
             "开始演唱会_通行证的数量",
-            "彩歌需要数据下载",
-            "Feat_BP回复"
+            "彩歌需要数据下载"
         ]
     },
     "Feat_打歌": {
         "doc": "中途退出和中途暂停都丢入内层了",
+        "timeout": 600000,
         "recognition": "OCR",
         "roi": [
             7,

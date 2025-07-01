@@ -190,16 +190,20 @@
         {
             "name": "巡演代打_联动ver",
             "entry": "Entry_TourMap",
-            "doc": "自动打完1Day的内容，使用前确保体力充足。支持导航。无法中途进入，请先打完未打完的关卡/Day。有其他自定义需求可以手动启用临时打歌",
+            "doc": "自动打完指定关卡的4首歌，支持导航。无法中途进入，请先打完未打完的关卡/Day。有其他自定义需求可以手动启用临时打歌",
             "option": [
-                "代打执行关卡数",
+                "代打执行次数",
                 "选择巡演关卡",
                 "巡演BP规划",
+                "BP回复",
                 "第一首使用编队",
                 "第二首使用编队",
                 "第三首使用编队",
                 "第四首使用编队",
                 "打完后自动领取星光奖励"
+            ],
+            "advanced": [
+                "手动输入巡演关卡（输入1~30内的数字）"
             ]
         },
         {
@@ -348,118 +352,8 @@
                     }
                 },
                 {
-                    "name": "01",
+                    "name": "前往高级设置手动指定",
                     "pipeline_override": {}
-                },
-                {
-                    "name": "02",
-                    "pipeline_override": {
-                        "Flag_目标关卡_next": {
-                            "template": [
-                                "TourConcert/巡演02.png"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队03",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队03"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队04",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队04"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队05",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队05"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队06",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队06"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队07",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队07"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队08",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队08"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队09",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队09"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队10",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队10"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队11",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队11"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "演唱会组队12",
-                    "pipeline_override": {
-                        "for_编队调整_巡演4": {
-                            "expected": [
-                                "演唱会组队12"
-                            ]
-                        }
-                    }
                 }
             ]
         },
@@ -1178,7 +1072,7 @@
                 }
             ]
         },
-        "代打执行关卡数": {
+        "代打执行次数": {
             "cases": [
                 {
                     "name": "1",
@@ -1225,6 +1119,44 @@
                 {
                     "name": "3333",
                     "pipeline_override": {}
+                },
+                {
+                    "name": "只打前3首",
+                    "pipeline_override": {
+                        "Feat_巡演BP调整": {
+                            "next": "终止巡演进程"
+                        }
+                    }
+                }
+            ]
+        },
+        "BP回复": {
+            "cases": [
+                {
+                    "name": "不回复BP",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "使用限时哨子回复BP",
+                    "pipeline_override": {
+                        "Feat_BP回复": {
+                            "enabled": true
+                        },
+                        "Flag_限时哨子回复_next": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "使用钻石回复BP",
+                    "pipeline_override": {
+                        "Feat_BP回复": {
+                            "enabled": true
+                        },
+                        "Flag_钻石回复_next": {
+                            "enabled": true
+                        }
+                    }
                 }
             ]
         },
@@ -1396,6 +1328,30 @@
                     "pipeline_override": {}
                 }
             ]
+        }
+    },
+    "advanced": {
+        "手动输入巡演执行次数（仅支持数字）": {
+            "field": "x",
+            "type": "int",
+            "default": "1",
+            "pipeline_override": {
+                "巡演_custom启动": {
+                    "custom_action_param": {
+                        "tour_count": "{x}"
+                    }
+                }
+            }
+        },
+        "手动输入巡演关卡（输入01~30内的二位数字）": {
+            "field": "x",
+            "type": "string",
+            "default": "01",
+            "pipeline_override": {
+                "Flag_目标关卡_next": {
+                    "template": "TourConcert/巡演{x}.png"
+                }
+            }
         }
     }
 }

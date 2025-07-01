@@ -50,9 +50,13 @@ class   TourConcert(CustomAction):
                 )
                 #所有的都需要失败信息
                 if i==3:#如果中途开始，BP调整会出现给最后一首歌选3的情况（因为没有建立对映）
-                    context.run_task("Feat_巡演BP调整")#interface中修改切10的enable                 
+                    flag=context.run_task("Feat_巡演BP调整").nodes#interface中修改切10的enable                 
                 else:
-                    context.run_task("Feat_巡演BP调整_切3")#interface中修改其中关于BP回复的选项
+                    flag=context.run_task("Feat_巡演BP调整_切3").nodes#interface中修改其中关于BP回复的选项
+                
+                if(self.Check_Completed(flag,"终止巡演进程")):
+                     return CustomAction.RunResult(success=True)
+                
                 #调完bp，开始打歌了
 
                 image = context.tasker.controller.post_screencap().wait().get()
