@@ -52,7 +52,9 @@
 ## 如何使用
 1. 点击链接下载最新[Release](https://github.com/fictionalflaw/MMleo/releases)包
 
-2. 解压后双击`MFAAvalonia.exe`即可运行
+2. 解压后双击`MMleo.exe`即可运行
+
+3. 使用软件请查看 [使用说明](./docs/zh_cn/使用说明.md) 文档。
    
 
 
@@ -61,7 +63,7 @@
 - 对于绝大部分用户，请下载 MMleo-win-x86_64.zip
 - 若确定自己的电脑是 arm 架构，请下载 MMleo-win-aarch64.zip
 - 请注意！Windows 的电脑几乎全都是 x86_64 的，可能占 99.999%，除非你非常确定自己是 arm，否则别下这个！_
-- 解压后运行 MFAAvalonia.exe（图形化界面，推荐使用，老版本UI为MFAWPF.exe）或 MaaPiCli.exe（命令行）即可
+- 解压后运行 MMleo.exe（图形化界面）或 MaaPiCli.exe（命令行）即可
 - 
 ### macOS
 
@@ -106,7 +108,6 @@
 ## 版权声明
 
 - 本软件 logo 并非使用 MIT 协议开源，[穹叶](https://www.mihuashi.com/profiles/7063125)画师及软件全体开发者保留所有权利。不得以 MIT 协议已授权为由在未经授权的情况下使用本软件 logo，不得在未经授权的情况下将本软件 logo 用于任何商业用途。
-- 本软件开源、免费，仅供学习交流使用。若您遇到商家使用本软件进行代练并收费，可能是设备与时间等费用，产生的问题及后果与本软件无关。
   
 ## 鸣谢
 
