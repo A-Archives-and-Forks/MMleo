@@ -192,7 +192,8 @@
             "entry": "Entry_TourMap",
             "doc": "自动打完指定关卡的4首歌，支持导航。无法中途进入，请先打完未打完的关卡/Day。有其他自定义需求可以手动启用临时打歌",
             "option": [
-                "代打执行次数",
+                "巡演打歌方式",
+                "巡演执行次数",
                 "选择巡演关卡",
                 "巡演BP规划",
                 "BP回复",
@@ -203,6 +204,7 @@
                 "打完后自动领取星光奖励"
             ],
             "advanced": [
+                "手动输入巡演执行次数",
                 "手动输入巡演关卡"
             ]
         },
@@ -1072,7 +1074,79 @@
                 }
             ]
         },
-        "代打执行次数": {
+        "巡演打歌方式": {
+            "cases": [
+                {
+                    "name": "代打开图",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "启用自动（需要已打过本关）",
+                    "pipeline_override": {
+                        "Feat_打歌": {
+                            "action": "DoNothing"
+                        },
+                        "Feat_难度调整": {
+                            "next": "Feat_难度调整_巡演ver",
+                            "interrupt": []
+                        },
+                        "Feat_难度调整_End_巡演ver": {
+                            "next": "Feat_Check自动"
+                        },
+                        "Feat_Check自动_End": {
+                            "doc": "在难度调整时顺带启用了自动，巡演限定",
+                            "next": "Feat_难度调整_End"
+                        },
+                        "Entry_巡演后领取星光奖励": {
+                            "next": [],
+                            "interrupt": []
+                        }
+                    }
+                }
+            ]
+        },
+        "启用自动时使用的难度": {
+            "cases": [
+                {
+                    "name": "简单",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "普通",
+                    "pipeline_override": {
+                        "Flag_目标难度_巡演ver": {
+                            "template": "难度上标_普通.png"
+                        },
+                        "难度调整_巡演ver": {
+                            "expected": "^\\普通$"
+                        }
+                    }
+                },
+                {
+                    "name": "困难",
+                    "pipeline_override": {
+                        "Flag_目标难度_巡演ver": {
+                            "template": "难度上标_困难.png"
+                        },
+                        "难度调整_巡演ver": {
+                            "expected": "^\\困难$"
+                        }
+                    }
+                },
+                {
+                    "name": "专家",
+                    "pipeline_override": {
+                        "Flag_目标难度_巡演ver": {
+                            "template": "难度上标_专家.png"
+                        },
+                        "难度调整_巡演ver": {
+                            "expected": "^\\专家$"
+                        }
+                    }
+                }
+            ]
+        },
+        "巡演执行次数": {
             "cases": [
                 {
                     "name": "1",
@@ -1101,6 +1175,14 @@
                             "custom_action_param": {
                                 "tour_count": 3
                             }
+                        }
+                    }
+                },
+                {
+                    "name": "前往高级设置自定义执行次数",
+                    "pipeline_override": {
+                        "巡演_custom启动_输入": {
+                            "enabled": true
                         }
                     }
                 }
@@ -1331,14 +1413,14 @@
         }
     },
     "advanced": {
-        "手动输入巡演执行次数（仅支持数字）": {
-            "field": "x",
+        "手动输入巡演执行次数": {
+            "field": "输入巡演执行次数（纯数字）",
             "type": "int",
             "default": "1",
             "pipeline_override": {
-                "巡演_custom启动": {
+                "巡演_custom启动_输入": {
                     "custom_action_param": {
-                        "tour_count": "{x}"
+                        "tour_count": "{输入巡演执行次数（纯数字）}"
                     }
                 }
             }

@@ -4,6 +4,7 @@
         "next": [
             "Flag_特别演唱会_next",
             "Flag_TourMap_next",
+            "巡演_custom启动_输入",
             "巡演_custom启动"
         ],
         "interrupt": [
@@ -184,7 +185,10 @@
         "threshold": 0.9,
         "action": "Click",
         "post_wait_freezes": 1000,
-        "next": "巡演_custom启动",
+        "next": [
+            "巡演_custom启动_输入",
+            "巡演_custom启动"
+        ],
         "interrupt": "Click_正中下端_开始演唱会"
     },
     "Flag_最近巡演关卡_next": {
@@ -199,7 +203,10 @@
         "template": "TourConcert/巡演最新关卡icon.png",
         "action": "Click",
         "post_wait_freezes": 1000,
-        "next": "巡演_custom启动",
+        "next": [
+            "巡演_custom启动_输入",
+            "巡演_custom启动"
+        ],
         "interrupt": "Click_正中下端_开始演唱会"
     },
     "巡演_custom启动": {
@@ -217,6 +224,23 @@
         "custom_action_param": {
             "tour_count": 1
         }
+    },
+    "巡演_custom启动_输入": {
+        "doc": "用于在interface中接收输入次数(为了使option的优先级高于advanced)",
+        "roi": [
+            0,
+            529,
+            217,
+            163
+        ],
+        "recognition": "TemplateMatch",
+        "template": "巡演_放弃.png",
+        "action": "Custom",
+        "custom_action": "TourConcert",
+        "custom_action_param": {
+            "tour_count": 1
+        },
+        "enabled": false
     },
     "Click_正中下端_开始演唱会": {
         "doc": "目标关卡，interface中更改",
@@ -587,6 +611,78 @@
         "action": "Click",
         "post_wait_freezes": 1000,
         "next": "Flag_TourMap"
+    },
+    "Feat_难度调整_巡演ver": {
+        "doc": "需要哪个难度就在interface中修改Flag的template和'难度调整'node的expected",
+        "next": "Flag_目标难度_巡演ver",
+        "interrupt": [
+            "Back难度调整_in选组_巡演ver",
+            "难度调整_巡演ver"
+        ]
+    },
+    "Feat_难度调整_End_巡演ver": {
+        "doc": "在interface中连接后续节点",
+        "next": []
+    },
+    "Back难度调整_in选组_巡演ver": {
+        "doc": "在组合选择界面",
+        "roi": [
+            29,
+            0,
+            279,
+            140
+        ],
+        "recognition": "OCR",
+        "expected": "^\\组合选择$",
+        "action": "Key",
+        "key": 111,
+        "post_wait_freezes": {
+            "time": 2000,
+            "target": [
+                1071,
+                655,
+                209,
+                65
+            ]
+        },
+        "next": "难度调整_巡演ver"
+    },
+    "难度调整_巡演ver": {
+        "doc": "在选曲界面，巡演可用",
+        "roi": [
+            603,
+            369,
+            677,
+            182
+        ],
+        "recognition": "OCR",
+        "expected": "^\\简单$",
+        "action": "Click",
+        "post_wait_freezes": {
+            "time": 500,
+            "target": [
+                1071,
+                655,
+                209,
+                65
+            ]
+        },
+        "next": [
+            "下载歌曲",
+            "确认歌曲"
+        ]
+    },
+    "Flag_目标难度_巡演ver": {
+        "doc": "编队界面左上标,在interface中修改难度",
+        "roi": [
+            46,
+            33,
+            348,
+            217
+        ],
+        "recognition": "TemplateMatch",
+        "template": "难度上标_简单.png",
+        "next": "Feat_难度调整_End"
     },
     "for_reco_last_in_tc": {
         "doc": "只是作为验证最后一首歌的辅助手段,相等就设置10，不等不管，优先级依旧是顺位为最高",

@@ -130,6 +130,40 @@
         ],
         "template": "BP回复_只有哨子.png",
         "action": "Click",
+        "green_mask": true,
+        "threshold": 0.9,
+        "target": "Feat_BP回复",
+        "next": "Feat_BP回复_End"
+    },
+    "Flag_不限时哨子回复_next": {
+        "doc": "测了，单哨子不会识别成这个，该法可行。还差单限时哨和不限时哨的对比,还没连入主任务链",
+        "recognition": "TemplateMatch",
+        "roi": [
+            239,
+            61,
+            846,
+            562
+        ],
+        "template": "BP回复_限时和不限时哨子.png",
+        "action": "Click",
+        "green_mask": true,
+        "threshold": 0.9,
+        "target": "Feat_BP回复",
+        "next": "Feat_BP回复_End"
+    },
+    "test_限时不限时哨子和钻石": {
+        "doc": "测了,还没连入主任务链",
+        "recognition": "TemplateMatch",
+        "roi": [
+            239,
+            61,
+            846,
+            562
+        ],
+        "template": "BP回复_哨子们和钻石.png",
+        "action": "Click",
+        "green_mask": true,
+        "threshold": 0.9,
         "target": "Feat_BP回复",
         "next": "Feat_BP回复_End"
     },

@@ -27,7 +27,7 @@ class   TourConcert(CustomAction):
         for j in range(tour_count):
             image = context.tasker.controller.post_screencap().wait().get()
             key ="巡演_custom启动"
-
+            #巡演界面识别
             if context.run_recognition(key,image):
                 logger.info(f"即将开始第{j+1}轮巡演打歌...")
             else:
@@ -35,10 +35,18 @@ class   TourConcert(CustomAction):
                 return CustomAction.RunResult(success=True)
             
             for i in range(4):
+                if context.tasker.stopping:
+                    logger.info("检测到停止任务, 开始退出agent")
+                    return CustomAction.RunResult(success=False)
+                
                 nodes=context.run_task(degree).nodes
-                flag=self.Check_Completed(nodes,"Feat_难度调整_End")
+                flag=self.Check_Completed(nodes,"Feat_难度调整_End")                
                 if not flag :
-                    logger.warning(f"难度调整失败,即将终止巡演打歌进程...")
+                    logger.warning(f"难度调整失败，即将终止巡演打歌进程...")
+                    return CustomAction.RunResult(success=True)
+                #如果启用了自动，check自动调整成功
+                if self.Check_Completed(nodes,"Feat_Check自动") and not self.Check_Completed(nodes,"Feat_Check自动_End"):
+                    logger.warning(f"自动打歌启用失败，即将终止巡演打歌进程...")
                     return CustomAction.RunResult(success=True)
                 
                 context.run_task("Feat_编队调整",
@@ -63,23 +71,23 @@ class   TourConcert(CustomAction):
                 key ="Feat_开始演唱会"
 
                 if context.run_recognition(key,image):
-                    logger.info(f"即将开始第{j+1}轮,第{i+1}次打歌...")
+                    logger.info(f"即将开始第{j+1}轮，第{i+1}次打歌...")
                     tour_check=context.run_task(key).nodes
                 else:
-                    logger.warning(f"识别失败, 即将终止巡演打歌进程...")
+                    logger.warning(f"识别打歌入口失败, 即将终止巡演打歌进程...")
                     return CustomAction.RunResult(success=True)
                 
                 if self.Check_Completed(tour_check,"Feat_BP回复") and not self.Check_Completed(tour_check,"Feat_BP回复_End"):
                     #使用了BP回复但没有进入end
-                    logger.info(f"BP回复失败,即将终止巡演打歌进程...")
+                    logger.info(f"BP回复失败，即将终止巡演打歌进程...")
                     return CustomAction.RunResult(success=True)
                 
                 elif self.Check_Completed(tour_check,"Flag_TourMap"):
-                    logger.info(f"已回到巡演地图,第{j+1}轮巡演打歌结束...")
+                    logger.info(f"已回到巡演地图，第{j+1}轮巡演打歌结束...")
                     break
 
                 logger.info(f"第{j+1}轮巡演，第{i+1}次打歌结束...")
-
+            
             context.run_task("Entry_巡演后领取星光奖励")
             if j<tour_count-1:context.run_task("Entry_TourMap",pipeline_override=
                                                 {
@@ -88,7 +96,7 @@ class   TourConcert(CustomAction):
                                                         }
                                                     }
                                                 )
-                #回到循环开始状态
+                #回到循环开始时状态(巡演打歌界面)
     def Check_Completed(self,run_detail,completed_node):
         '''
         Args:
