@@ -97,6 +97,7 @@ class   TourConcert(CustomAction):
                                                     }
                                                 )
                 #回到循环开始时状态(巡演打歌界面)
+                
     def Check_Completed(self,run_detail,completed_node):
         '''
         Args:
