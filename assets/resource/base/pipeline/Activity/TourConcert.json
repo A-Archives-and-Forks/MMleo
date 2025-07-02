@@ -84,7 +84,10 @@
     },
     "Feat_search巡演关卡": {
         "doc": "搜寻目标关卡，接受interface指定，或者自动找最后一个没打的关卡",
-        "next": "Flag_目标关卡_next",
+        "next": [
+            "Flag_目标关卡_next",
+            "Flag_最近巡演关卡_next"
+        ],
         "interrupt": "search巡演关卡_向左01"
     },
     "search巡演关卡_向左01": {
@@ -126,7 +129,10 @@
         ],
         "recognition": "TemplateMatch",
         "template": "TourConcert/巡演01.png",
-        "next": "Flag_目标关卡_next",
+        "next": [
+            "Flag_目标关卡_next",
+            "Flag_最近巡演关卡_next"
+        ],
         "interrupt": "search巡演关卡_向右搜"
     },
     "search巡演关卡_向右搜": {

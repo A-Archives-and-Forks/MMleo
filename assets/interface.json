@@ -350,6 +350,9 @@
                             "next": [
                                 "Flag_最近巡演关卡_next"
                             ]
+                        },
+                        "Flag_目标关卡_next": {
+                            "enabled": false
                         }
                     }
                 },
