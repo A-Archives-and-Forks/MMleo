@@ -21,7 +21,7 @@ on:
 
 env:
   #MaaFw_tag: v4.2.3
-  MFA_tag: v1.4.0
+  # MFA_tag: v1.4.0
   app_name: MMleo
 
 permissions:
@@ -131,7 +131,7 @@ jobs:
         with:
           repository: SweetSmellFox/MFAAvalonia
           fileName: "MFAAvalonia-*-win-x64*"
-          tag: "${{ env.MFA_tag }}"
+          # tag: "${{ env.MFA_tag }}"
           out-file-path: "MFAAvalonia"
           extract: true
 
