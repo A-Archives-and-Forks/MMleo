@@ -1443,13 +1443,13 @@
     },
     "advanced": {
         "手动输入巡演执行次数": {
-            "field": "输入巡演执行次数（纯数字）",
+            "field": "输入巡演执行次数",
             "type": "int",
             "default": "1",
             "pipeline_override": {
                 "巡演_custom启动_输入": {
                     "custom_action_param": {
-                        "tour_count": "{输入巡演执行次数（纯数字）}"
+                        "tour_count": "{输入巡演执行次数}"
                     }
                 }
             }
