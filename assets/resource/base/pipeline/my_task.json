@@ -25,6 +25,7 @@
             554
         ],
         "template": "音符目标5__814_591_68_68__764_541_168_168.png",
+        "threshold": 0.7,
         "order_by": "Horizontal",
         "index": 0
     },
