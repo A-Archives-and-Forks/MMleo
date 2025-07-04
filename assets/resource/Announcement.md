@@ -12,11 +12,11 @@
 
 交流反馈🐧号码：[961390173](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Bk)  
 
-唯一指定b站官方:[年少轻狂诗酒江湖](https://www.bilibili.com/video/BV1wX7VzTEvS) ~~（私号公用了，只存指导视频，别关注啦）~~  
+唯一指定b站官方：[年少轻狂诗酒江湖](https://www.bilibili.com/video/BV1wX7VzTEvS) ~~（私号公用了，只存指导视频，别关注啦）~~  
 
-唯一指定下载渠道:[github主页](https://github.com/fictionalflaw/MMleo)  
+唯一指定下载渠道：[github主页](https://github.com/fictionalflaw/MMleo)  
 
-唯一指定分发渠道:[Mirror酱](https://mirrorchyan.com/zh/projects?rid=MMleo)  
+唯一指定分发渠道：[Mirror酱](https://mirrorchyan.com/zh/projects?rid=MMleo)  
 
 从指定下载和分发渠道外获取本项目程序，由此带来的问题本项目不承担任何责任。
 
@@ -24,12 +24,12 @@
 
 **反馈前请务必满足以下条件：**
 
-1.  **已完整观看并严格遵循项目[指导视频](https://www.bilibili.com/video/BV1wX7VzTEvS)中的操作步骤。**
-2.  确认遇到的问题 **未被视频教程明确涵盖** 或 **已按教程操作仍无法解决**。
+1. **已完整观看并严格遵循项目[指导视频](https://www.bilibili.com/video/BV1wX7VzTEvS)中的操作步骤。**
+2. 确认遇到的问题 **未被视频教程明确涵盖** 或 **已按教程操作仍无法解决**。
 
 **满足以上条件后，您可以通过以下途径反馈 Bug：**
 
-*   **在项目官方群([961390173](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Bk))内询问。**
+*   **在项目官方群([961390173](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Bk))内询问。**  
 *   **直接在 GitHub 仓库[提交issue](https://github.com/fictionalflaw/MMleo/issues?q=is%3Aissue)。**
 
 > 感谢您的理解与宝贵贡献！您的反馈对我们改进项目至关重要。
@@ -49,9 +49,8 @@
 
 ## 赞助
 
-<!-- markdownlint-disable MD045 -->
 <a href="https://afdian.com/a/fictionalflaw">
-  <img width="200" src="https://pic1.afdiancdn.com/static/img/welcome/button-sponsorme.png">
+  <img src="https://pic1.afdiancdn.com/static/img/welcome/button-sponsorme.png" width="150" height="50">
 </a>
 
 ## Mirror酱
