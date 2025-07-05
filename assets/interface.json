@@ -254,6 +254,17 @@
             }
         },
         {
+            "name": "夏季",
+            "entry": "Entry_BirthdayActivity",
+            "doc": "自动导航到纪念活动界面并上交礼物，不提供礼物购买功能",
+            "pipeline_override": {
+                "Flag_Main": {
+                    "next": "BA_fromBanner",
+                    "interrupt": "Swipe_forBA"
+                }
+            }
+        },
+        {
             "name": "9周年通行证_测试用",
             "entry": "9Activity",
             "pipeline_override": {

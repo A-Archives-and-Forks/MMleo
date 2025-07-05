@@ -90,6 +90,36 @@
         ],
         "only_rec": true
     },
+    "for_end_concert_success": {
+        "doc": "用于终止打歌进程",
+        "recognition": "OCR",
+        "roi": [
+            347,
+            244,
+            616,
+            232
+        ],
+        "expected": [
+            "SUCCESS!!"
+        ],
+        "threshold": 0.9,
+        "only_rec": true
+    },
+    "for_end_concert_live": {
+        "doc": "用于终止打歌进程",
+        "recognition": "OCR",
+        "roi": [
+            347,
+            244,
+            616,
+            232
+        ],
+        "expected": [
+            "LIVE"
+        ],
+        "threshold": 0.9,
+        "only_rec": true
+    },
     "for_end_after_concert_1": {
         "doc": "打歌后结束，使用精确ocr，加入interrupt列表，不在打歌前界面会依次识别interrupt可能内容,此处interrup列表除了故事列表都应是不可更改的单层节点",
         "recognition": "OCR",
