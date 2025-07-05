@@ -1,4 +1,15 @@
 {
+    "Flag_Recruit": {
+        "doc": "招募界面标识，采用右上角上次的结果",
+        "roi": [
+            873,
+            0,
+            235,
+            119
+        ],
+        "recognition": "OCR",
+        "expected": "上次的结果"
+    },
     "OKInRecruit": {
         "doc": "点击招募决策的ok键，只推荐用于海选",
         "roi": [
@@ -15,6 +26,7 @@
         ]
     },
     "点击屏幕开始招募": {
+        "timeout": 60000,
         "doc": "因为招募就是纯净版背景连字都没有，没做roi",
         "roi": [
             0,
@@ -26,7 +38,8 @@
         "expected": "点击屏幕",
         "pre_wait_freezes": 2000,
         "action": "Click",
-        "next": [
+        "next": "Flag_Recruit",
+        "interrupt": [
             "跳过，在招募结算",
             "OK，在招募结算"
         ]
@@ -106,6 +119,14 @@
     },
     "Swipe1InReCruit": {
         "doc": "在招募界面划动1个招募格的距离",
+        "roi": [
+            873,
+            0,
+            235,
+            119
+        ],
+        "recognition": "OCR",
+        "expected": "上次的结果",
         "action": "Swipe",
         "begin": [
             95,
@@ -130,6 +151,14 @@
     },
     "SwipeMaxInReCruit": {
         "doc": "有多少划多少（4格，以适配招募界面初始位置），一般用于找海选（必定在最底部）,如果用于其他得回划和全招募banner识别",
+        "roi": [
+            873,
+            0,
+            235,
+            119
+        ],
+        "recognition": "OCR",
+        "expected": "上次的结果",
         "action": "Swipe",
         "begin": [
             106,

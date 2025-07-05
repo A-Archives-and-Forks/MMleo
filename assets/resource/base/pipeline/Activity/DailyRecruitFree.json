@@ -14,6 +14,15 @@
             "免费！"
         ],
         "action": "Click",
+        "post_wait_freezes": {
+            "time": 2000,
+            "target": [
+                1071,
+                655,
+                209,
+                65
+            ]
+        },
         "next": [
             "ScoutFreeInRecruit"
         ],
@@ -35,6 +44,12 @@
             "免费1次"
         ],
         "action": "Click",
+        "target_offset": [
+            0,
+            50,
+            0,
+            0
+        ],
         "next": [
             "OKInRecruit"
         ]

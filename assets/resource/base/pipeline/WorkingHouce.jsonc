@@ -122,25 +122,35 @@
     "action": "Click",
     "template": "偶像工作_不打勾.png",
     "next": [
-      "Flag_确认工作已选中_活动"
+      "选择偶像工作_前往工作准备"
     ]
   },
-  "Flag_确认工作已选中_活动": {
-    "doc": "确定选中的是活动工作",
+    "期间限定_选择第二个": {
+    "doc": "选择第二个活动工作,严格roi",
     "recognition": "TemplateMatch",
-    "roi": [
-      203,
-      138,
-      62,
-      82
-    ],
+    "roi": [161,222,143,140],
     "action": "Click",
-    "template": "偶像工作_打勾.png",
+    "template": "偶像工作_不打勾.png",
     "next": [
       "选择偶像工作_前往工作准备"
     ]
   },
-  // "Flag_工作已选中_next": {已废弃
+  // "Flag_确认工作已选中_活动": {
+  //   "doc": "确定选中的是活动工作",
+  //   "recognition": "TemplateMatch",
+  //   "roi": [
+  //     203,
+  //     138,
+  //     62,
+  //     82
+  //   ],
+  //   "action": "Click",
+  //   "template": "偶像工作_打勾.png",
+  //   "next": [
+  //     "选择偶像工作_前往工作准备"
+  //   ]
+  // },
+  // "Flag_工作已选中_next":{ 
   //   "doc": "确定工作是打勾状态",
   //   "recognition": "TemplateMatch",
   //   "roi": [
