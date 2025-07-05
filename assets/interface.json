@@ -238,13 +238,13 @@
             }
         },
         {
-            "name": "夏季",
-            "entry": "Entry_BirthdayActivity",
-            "doc": "自动导航到纪念活动界面并上交礼物，不提供礼物购买功能",
+            "name": "使用每日免费送抽",
+            "entry": "BackMain",
+            "doc": "比如夏活",
             "pipeline_override": {
                 "Flag_Main": {
-                    "next": "BA_fromBanner",
-                    "interrupt": "Swipe_forBA"
+                    "next": "ScoutFreeInMain",
+                    "interrupt": []
                 }
             }
         },

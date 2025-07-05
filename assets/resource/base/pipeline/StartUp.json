@@ -1,4 +1,11 @@
 {
+    "BackMain": {
+        "next": "Flag_Main",
+        "interrupt": [
+            "BackMainInMenu",
+            "BackMainByMenu"
+        ]
+    },
     "Entry_StartUP": {
         "doc": "启动",
         "next": [
@@ -122,5 +129,4 @@
             ]
         }
     }
-
 }
