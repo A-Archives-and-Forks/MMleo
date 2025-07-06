@@ -133,6 +133,7 @@ jobs:
         with:
           repository: SweetSmellFox/MFAAvalonia
           fileName: "MFAAvalonia-*-win-x64*"
+          preRelease: true #指定预发布版用，正式版时去掉
           # tag: "${{ env.MFA_tag }}"
           out-file-path: "MFAAvalonia"
           extract: true
