@@ -78,7 +78,7 @@
         },
         {
             "name": "每日阅读",
-            "entry": "Entry_Card",
+            "entry": "Entry_NormalTale",
             "doc": "用于完成每日阅读任务",
             "pipeline_override": {
                 "ClickMenuIntale": {
