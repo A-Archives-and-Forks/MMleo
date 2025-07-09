@@ -21,7 +21,7 @@ on:
 
 env:
   #MaaFw_tag: v4.2.3
-  MFA_tag: v1.5.2-beta.3
+  # MFA_tag: v1.5.2
   app_name: MMleo
 
 permissions:
@@ -117,26 +117,26 @@ jobs:
             echo "mfa_arch=unknown" >> $GITHUB_OUTPUT
           fi
           
-      # - name: Download MFA
-      #   if: ${{ matrix.os != 'android' }}
-      #   uses: robinraju/release-downloader@v1
-      #   with:
-      #     repository: SweetSmellFox/MFAAvalonia
-      #     fileName: "MFAAvalonia-*${{ steps.mfa_naming.outputs.mfa_os }}-${{ steps.mfa_naming.outputs.mfa_arch }}*"
-      #     latest: true
-      #     out-file-path: "MFAAvalonia"
-      #     extract: true
-          
-      #指定mfa版本
-      - name: Download  MFAAvalonia
-        uses: robinraju/release-downloader@v1  
+      - name: Download MFA
+        if: ${{ matrix.os != 'android' }}
+        uses: robinraju/release-downloader@v1
         with:
           repository: SweetSmellFox/MFAAvalonia
-          fileName: "MFAAvalonia-*-win-x64*"
-          preRelease: true #指定预发布版用，正式版时去掉
-          tag: "${{ env.MFA_tag }}"
+          fileName: "MFAAvalonia-*${{ steps.mfa_naming.outputs.mfa_os }}-${{ steps.mfa_naming.outputs.mfa_arch }}*"
+          latest: true
           out-file-path: "MFAAvalonia"
           extract: true
+          
+      # #指定mfa版本
+      # - name: Download  MFAAvalonia
+      #   uses: robinraju/release-downloader@v1  
+      #   with:
+      #     repository: SweetSmellFox/MFAAvalonia
+      #     fileName: "MFAAvalonia-*-win-x64*"
+      #     preRelease: true #指定预发布版用，正式版时去掉
+      #     tag: "${{ env.MFA_tag }}"
+      #     out-file-path: "MFAAvalonia"
+      #     extract: true
 
       - name: Install MFAAvalonia
         if: ${{ matrix.os != 'android' }}

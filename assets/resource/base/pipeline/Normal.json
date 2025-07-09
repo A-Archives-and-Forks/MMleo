@@ -48,7 +48,8 @@
         "next": "点击屏幕获取奖励",
         "on_error": [
             "BackMainInMenu"
-        ]
+        ],
+        "focus": "领取月卡钻石成功，钻石+150！"
     },
     "BigCardInVip": {
         "doc": "在会员界面领取大月卡,如果出错就回主界面执行下一步",
