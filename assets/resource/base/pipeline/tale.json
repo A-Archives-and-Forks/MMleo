@@ -68,7 +68,8 @@
                 209,
                 65
             ]
-        }
+        },
+        "next": "Flag_活动故事_next"
     },
     "Flag_活动故事_next": {
         "doc": "已在活动故事界面的标志",
@@ -143,7 +144,20 @@
             0,
             0
         ],
-        "next": "RequiredClickForMenu"
+        "next": "RequiredClickForMenu",
+        "interrupt": "语音下载_无语音"
+    },
+    "语音下载_无语音": {
+        "doc": "语音下载提示，选择无语音模式",
+        "roi": [
+            162,
+            452,
+            873,
+            221
+        ],
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": "无语音模式"
     },
     "RequiredClickForMenu": {
         "timeout": 60000,
