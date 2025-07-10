@@ -9,7 +9,6 @@
         ],
         "recognition": "OCR",
         "expected": [
-            "招募",
             "1日1次",
             "免费！"
         ],
