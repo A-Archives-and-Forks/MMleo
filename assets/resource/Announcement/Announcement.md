@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD033 MD041 -->
+公告
 # MMleo - 偶像梦幻祭2小助手
 ## ✨助力屯屯鼠的制作人生涯✨  
 
@@ -11,8 +11,6 @@
 **第一次使用 MMleo 建议先单独尝试每一个功能，再尝试串行使用！**
 
 交流反馈🐧号码：[961390173](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Bk)  
-
-唯一指定b站官方：[年少轻狂诗酒江湖](https://www.bilibili.com/video/BV1wX7VzTEvS) ~~（私号公用了，只存指导视频，别关注啦）~~  
 
 唯一指定下载渠道：[github主页](https://github.com/fictionalflaw/MMleo)  
 
