@@ -97,7 +97,16 @@
 ## Join us
 
 - 交流反馈 QQ 群：961390173
-- MaaFramework 开发交流 QQ 群: 595990173
+
+## Star History
+
+<a href="https://www.star-history.com/#fictionalflaw/MMleo&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=fictionalflaw/MMleo&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=fictionalflaw/MMleo&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=fictionalflaw/MMleo&type=Date" />
+ </picture>
+</a>
 
 ## 免责声明
 

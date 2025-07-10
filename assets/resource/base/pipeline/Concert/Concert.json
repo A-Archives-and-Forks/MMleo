@@ -310,8 +310,12 @@
         ],
         "recognition": "OCR",
         "expected": [
-            "BP -O",
-            "BP-O"
+            "BP -0",
+            "BP-0"
+        ],
+        "replace": [
+            "O",
+            "0"
         ]
     },
     "Flag_已在目标BP-0": {
@@ -324,8 +328,12 @@
         ],
         "recognition": "OCR",
         "expected": [
-            "BP -O",
-            "BP-O"
+            "BP-0",
+            "BP -0"
+        ],
+        "replace": [
+            "O",
+            "0"
         ]
     },
     "Flag_BP消耗icon_next": {
@@ -391,8 +399,7 @@
         "recognition": "OCR",
         "expected": [
             "消耗OBP",
-            "消耗0BP",
-            "OBP"
+            "消耗0BP"
         ],
         "target_offset": [
             520,
