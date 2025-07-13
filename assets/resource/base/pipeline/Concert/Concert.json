@@ -514,6 +514,9 @@
         "next": "调整_Flag_编队01",
         "interrupt": "调整_Click左箭头"
     },
+    "Feat_编队调整_End": {
+        "doc": "作为出口，便于在interface中连接"
+    },
     "Flag_目标编队": {
         "roi": [
             89,
@@ -524,7 +527,8 @@
         "recognition": "OCR",
         "expected": [
             "演唱会组队01"
-        ]
+        ],
+        "next": "Feat_编队调整_End"
     },
     "调整_Flag_编队01": {
         "roi": [
