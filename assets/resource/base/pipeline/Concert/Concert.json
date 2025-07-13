@@ -399,7 +399,9 @@
         "recognition": "OCR",
         "expected": [
             "消耗OBP",
-            "消耗0BP"
+            "消耗0BP",
+            "^\\0BP$",
+            "^\\OBP$"
         ],
         "target_offset": [
             520,
@@ -458,9 +460,14 @@
         "recognition": "OCR",
         "expected": [
             "消耗OBP",
-            "消耗0BP"
+            "消耗0BP",
+            "^\\0BP$",
+            "^\\OBP$"
         ],
-        "next": "BP调整_上划"
+        "next": [
+            "BP调整_TO",
+            "BP调整_上划"
+        ]
     },
     "BP调整_上划": {
         "roi": [
