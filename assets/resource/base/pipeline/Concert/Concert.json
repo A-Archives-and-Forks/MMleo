@@ -515,7 +515,8 @@
         "interrupt": "调整_Click左箭头"
     },
     "Feat_编队调整_End": {
-        "doc": "作为出口，便于在interface中连接"
+        "doc": "作为出口，便于在interface中连接",
+        "next": []
     },
     "Flag_目标编队": {
         "roi": [
