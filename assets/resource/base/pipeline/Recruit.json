@@ -10,6 +10,18 @@
         "recognition": "OCR",
         "expected": "上次的结果"
     },
+    "新卡片移入休息室提示": {
+        "roi": [
+            418,
+            0,
+            431,
+            145
+        ],
+        "recognition": "OCR",
+        "expected": "新卡片移入休息室提示",
+        "focus": "卡片仓库已满，新卡片将移入休息室...",
+        "next": "Click_正中下端_确认"
+    },
     "OKInRecruit": {
         "doc": "点击招募决策的ok键，只推荐用于海选",
         "roi": [
@@ -38,10 +50,13 @@
         "expected": "点击屏幕",
         "pre_wait_freezes": 2000,
         "action": "Click",
-        "next": "Flag_Recruit",
+        "next": [
+            "新卡片移入休息室提示",
+            "Flag_Recruit"
+        ],
         "interrupt": [
             "跳过，在招募结算",
-            "OK，在招募结算"
+            "OK,在招募结算"
         ]
     },
     "跳过，在招募结算": {
@@ -56,10 +71,10 @@
         "expected": "跳过",
         "action": "Click",
         "next": [
-            "OK，在招募结算"
+            "OK,在招募结算"
         ]
     },
-    "OK，在招募结算": {
+    "OK,在招募结算": {
         "doc": "OK",
         "roi": [
             905,
