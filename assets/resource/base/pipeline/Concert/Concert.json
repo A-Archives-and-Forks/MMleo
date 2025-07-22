@@ -301,7 +301,7 @@
         ]
     },
     "Flag_已在目标BP": {
-        "doc": "在interface中拿后续模版覆盖",
+        "doc": "在interface中拿后续模版覆盖,这个位置中BP和-中间会分框，增加适配",
         "roi": [
             532,
             570,
@@ -311,8 +311,10 @@
         "recognition": "OCR",
         "expected": [
             "BP -0",
-            "BP-0"
+            "BP-0",
+            "^\\-0$"
         ],
+        "only_rec": true,
         "replace": [
             "O",
             "0"
@@ -329,7 +331,8 @@
         "recognition": "OCR",
         "expected": [
             "BP-0",
-            "BP -0"
+            "BP -0",
+            "^\\-0$"
         ],
         "replace": [
             "O",
