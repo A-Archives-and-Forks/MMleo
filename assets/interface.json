@@ -57,46 +57,6 @@
             ]
         },
         {
-            "name": "每日练卡",
-            "entry": "Entry_Card",
-            "doc": "用于完成每日练卡任务，不会对卡片检索进行变更",
-            "option": [
-                "按照等级排序",
-                "每日等级提升",
-                "每日偶像之路"
-            ]
-        },
-        {
-            "name": "每日阅读",
-            "entry": "Entry_NormalTale",
-            "doc": "用于完成每日阅读任务",
-            "pipeline_override": {
-                "ClickMenuIntale": {
-                    "next": "SkipInTale",
-                    "interrupt": []
-                },
-                "SureSkip": {
-                    "next": [
-                        "ClickScreenForSkip",
-                        "StopRead",
-                        "Flag_EndReading"
-                    ]
-                },
-                "ClickScreenForSkip": {
-                    "next": [
-                        "ClickScreenForSkip",
-                        "StopRead",
-                        "Flag_EndReading"
-                    ]
-                }
-            }
-        },
-        {
-            "name": "协会日常",
-            "entry": "Entry_GuildNormal",
-            "doc": "只会进行签到和偶像互动，推荐放在任务列表中前置任务活跃度足够80的位置"
-        },
-        {
             "name": "事务所",
             "entry": "Entry_WorkingHouce",
             "doc": "偶像工作，点击齿轮选择细节。当前版本偶像工作不具备规律性，因此只能选择一定价值区间内的工作",
@@ -437,6 +397,7 @@
             ]
         },
         "协会日常": {
+            "doc": "签到和偶像互动",
             "cases": [
                 {
                     "name": "Yes",
@@ -1454,74 +1415,6 @@
                             "interrupt": []
                         }
                     }
-                }
-            ]
-        },
-        "按照等级排序": {
-            "cases": [
-                {
-                    "name": "Yes",
-                    "pipeline_override": {
-                        "Flag_Card_next": {
-                            "next": [
-                                "组合选择_not等级",
-                                "组合选择_in等级"
-                            ]
-                        },
-                        "排序方式_in升序": {
-                            "next": [
-                                "Click_左上卡"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "pipeline_override": {}
-                }
-            ]
-        },
-        "每日等级提升": {
-            "cases": [
-                {
-                    "name": "Yes",
-                    "pipeline_override": {
-                        "Click_左上卡": {
-                            "next": [
-                                "Card_等级提升"
-                            ]
-                        },
-                        "Card_等级提升_关闭": {
-                            "next": [
-                                "Flag_卡片详情"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "pipeline_override": {}
-                }
-            ]
-        },
-        "每日偶像之路": {
-            "cases": [
-                {
-                    "name": "Yes",
-                    "pipeline_override": {
-                        "Flag_卡片详情": {
-                            "next": [
-                                "Card_偶像之路"
-                            ]
-                        },
-                        "Card_偶像之路_退出": {
-                            "next": []
-                        }
-                    }
-                },
-                {
-                    "name": "No",
-                    "pipeline_override": {}
                 }
             ]
         },
