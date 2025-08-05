@@ -1,10 +1,19 @@
 {
+    "Entry_DailyTask": {
+        "doc": "使用custom调控日常，用于整合日常后启动custom",
+        "action": "Custom",
+        "custom_action": "DailyTaskSelect"
+    },
     "Entry_Store": {
         "doc": "在不同地方找到商店入口",
         "next": [
-            "StoreIcon",
-            "CallOutMenu"
-        ]
+            "StoreIcon"
+        ],
+        "interrupt": [
+            "CallOutMenu",
+            "BackMainInMenu"
+        ],
+        "enabled": false
     },
     "StoreIcon": {
         "doc": "寻找商店入口，注意roi范围包括整个侧边四栏，可复用",
@@ -149,9 +158,13 @@
     "Entry_Recruit": {
         "doc": "在不同地方找到招募入口",
         "next": [
-            "RecruitIcon",
-            "CallOutMenu"
-        ]
+            "RecruitIcon"
+        ],
+        "interrupt": [
+            "CallOutMenu",
+            "BackMainInMenu"
+        ],
+        "enabled": false
     },
     "Entry_NormalAward": {
         "doc": "日常奖励入口",

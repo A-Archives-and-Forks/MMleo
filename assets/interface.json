@@ -45,25 +45,15 @@
             "entry": "Entry_StartUP"
         },
         {
-            "name": "领取月卡钻石",
-            "entry": "Entry_Store",
-            "pipeline_override": {
-                "CallOutMenu": {
-                    "next": "StoreIcon"
-                }
-            }
-        },
-        {
-            "name": "每日海选",
-            "doc": "支持选择海选次数",
-            "entry": "Entry_Recruit",
-            "pipeline_override": {
-                "CallOutMenu": {
-                    "next": "RecruitIcon"
-                }
-            },
+            "name": "常规日常",
+            "entry": "Entry_DailyTask",
             "option": [
-                "海选招募次数"
+                "领取月卡",
+                "每日海选",
+                "每日练卡",
+                "每日练卡_卡片排序方式",
+                "每日阅读",
+                "协会日常"
             ]
         },
         {
@@ -259,11 +249,34 @@
         }
     ],
     "option": {
-        "海选招募次数": {
+        "领取月卡": {
             "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "Entry_Store": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {}
+                }
+            ]
+        },
+        "每日海选": {
+            "cases": [
+                {
+                    "name": "不启用",
+                    "pipeline_override": {}
+                },
                 {
                     "name": "招募一次",
                     "pipeline_override": {
+                        "Entry_Recruit": {
+                            "enabled": true
+                        },
                         "AuditionInRecruit": {
                             "next": "Scout1InAudition"
                         }
@@ -272,6 +285,9 @@
                 {
                     "name": "招募十次",
                     "pipeline_override": {
+                        "Entry_Recruit": {
+                            "enabled": true
+                        },
                         "AuditionInRecruit": {
                             "next": "Scout10InAudition"
                         }
@@ -280,10 +296,159 @@
                 {
                     "name": "招募百次",
                     "pipeline_override": {
+                        "Entry_Recruit": {
+                            "enabled": true
+                        },
                         "AuditionInRecruit": {
                             "next": "Scout100InAudition"
                         }
                     }
+                }
+            ]
+        },
+        "每日练卡": {
+            "doc": "基于选择将可能进行的操作：提升1级卡片等级，点亮1格偶像之路。",
+            "cases": [
+                {
+                    "name": "仅提升卡片等级",
+                    "pipeline_override": {
+                        "Entry_Card": {
+                            "enabled": true
+                        },
+                        "Click_左上卡": {
+                            "next": [
+                                "Card_等级提升"
+                            ]
+                        },
+                        "Card_等级提升_关闭": {
+                            "next": [
+                                "Flag_卡片详情"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "仅点亮偶像之路",
+                    "pipeline_override": {
+                        "Entry_Card": {
+                            "enabled": true
+                        },
+                        "Flag_卡片详情": {
+                            "next": [
+                                "Card_偶像之路"
+                            ]
+                        },
+                        "Card_偶像之路_退出": {
+                            "next": []
+                        }
+                    }
+                },
+                {
+                    "name": "偶像之路和卡片升级",
+                    "pipeline_override": {
+                        "Entry_Card": {
+                            "enabled": true
+                        },
+                        "Click_左上卡": {
+                            "next": [
+                                "Card_等级提升"
+                            ]
+                        },
+                        "Card_等级提升_关闭": {
+                            "next": [
+                                "Flag_卡片详情"
+                            ]
+                        },
+                        "Flag_卡片详情": {
+                            "next": [
+                                "Card_偶像之路"
+                            ]
+                        },
+                        "Card_偶像之路_退出": {
+                            "next": []
+                        }
+                    }
+                },
+                {
+                    "name": "不启用",
+                    "pipeline_override": {}
+                }
+            ],
+            "default_case": "偶像之路和卡片升级"
+        },
+        "每日练卡_卡片排序方式": {
+            "doc": "仅当启用每日练卡时才会生效。为了降低出错概率，无论选择什么排序方式，都会调整卡片至升序排列",
+            "cases": [
+                {
+                    "name": "按照等级排序",
+                    "pipeline_override": {
+                        "Flag_Card_next": {
+                            "next": [
+                                "组合选择_not等级",
+                                "组合选择_in等级"
+                            ]
+                        },
+                        "排序方式_in升序": {
+                            "next": [
+                                "Click_左上卡"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "不调整排序方式",
+                    "pipeline_override": {}
+                }
+            ]
+        },
+        "每日阅读": {
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "Entry_NormalTale": {
+                            "doc": "修改的自动阅读的任务链，不应与自动阅读放在同个task内使用",
+                            "enabled": true
+                        },
+                        "ClickMenuIntale": {
+                            "next": "SkipInTale",
+                            "interrupt": []
+                        },
+                        "SureSkip": {
+                            "next": [
+                                "ClickScreenForSkip",
+                                "StopRead",
+                                "Flag_EndReading"
+                            ]
+                        },
+                        "ClickScreenForSkip": {
+                            "next": [
+                                "ClickScreenForSkip",
+                                "StopRead",
+                                "Flag_EndReading"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {}
+                }
+            ]
+        },
+        "协会日常": {
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "Entry_GuildNormal": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {}
                 }
             ]
         },

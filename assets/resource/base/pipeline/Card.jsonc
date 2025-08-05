@@ -8,7 +8,8 @@
         "interrupt": [
             "CallOutMenu",
             "BackMainInMenu"
-        ]
+        ],
+        "enabled": false
     },
     "CardIcon": {
         "doc": "寻找卡片入口，注意roi范围包括整个侧边四栏，可复用",
