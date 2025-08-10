@@ -32,7 +32,7 @@ class DailyTask(CustomAction):
                 
                 return CustomAction.RunResult(success=False)
             # 检查任务是否开启
-            keyout=order_outname(key)
+            keyout=order_outname[key]
             nodeDetail = context.get_node_data(f"{key}")
             if not nodeDetail or not nodeDetail.get("enabled", False):
                 logger.info(f"任务: {keyout} 已禁用, 跳过该任务")
@@ -49,5 +49,5 @@ class DailyTask(CustomAction):
             
 
             time.sleep(1)
-
+            
         return CustomAction.RunResult(success=True)

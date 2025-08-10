@@ -41,7 +41,14 @@
         "recognition": "OCR",
         "expected": "会员",
         "action": "Click",
-        "next": "DiamondInVip"
+        "next": "DiamondInVip",
+        "on_error": [
+            "Error_无法领取月卡"
+        ]
+    },
+    "Error_无法领取月卡": {
+        "doc": "error的focus",
+        "focus": "[ERR]领取月卡奖励失败!"
     },
     "DiamondInVip": {
         "doc": "在会员界面领取小月卡,如果出错就回主界面执行下一步",
@@ -54,11 +61,33 @@
         "recognition": "OCR",
         "expected": "领取",
         "action": "Click",
-        "next": "点击屏幕获取奖励",
+        "next": "点击屏幕获取奖励_小月卡",
         "on_error": [
             "BackMainInMenu"
         ],
         "focus": "领取月卡钻石成功，钻石+150！"
+    },
+    "点击屏幕获取奖励_小月卡": {
+        "doc": "原node:点击屏幕获取奖励",
+        "roi": [
+            504,
+            555,
+            280,
+            137
+        ],
+        "recognition": "OCR",
+        "expected": "点击屏幕",
+        "action": "Click",
+        "post_wait_freezes": {
+            "time": 2000,
+            "target": [
+                1071,
+                655,
+                209,
+                65
+            ]
+        },
+        "next": "BigCardInVip"
     },
     "BigCardInVip": {
         "doc": "在会员界面领取大月卡,如果出错就回主界面执行下一步",
@@ -74,7 +103,8 @@
         "next": "点击屏幕获取奖励",
         "on_error": [
             "BackMainInMenu"
-        ]
+        ],
+        "focus": "领取应援会员奖励成功，翻倍卡+15！"
     },
     "SKIP": {
         "roi": [
