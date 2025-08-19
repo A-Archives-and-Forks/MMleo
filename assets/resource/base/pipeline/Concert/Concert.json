@@ -323,21 +323,13 @@
     "Flag_已在目标BP-0": {
         "doc": "interface中更改,'BP -O'、'BP -1'、'BP- 3'、'BP- 6'、'BP-10'、'BP-30'",
         "roi": [
-            619,
-            590,
-            105,
-            52
+            532,
+            570,
+            305,
+            130
         ],
-        "recognition": "OCR",
-        "expected": [
-            "BP-0",
-            "BP -0",
-            "^\\-0$"
-        ],
-        "replace": [
-            "O",
-            "0"
-        ]
+        "recognition": "TemplateMatch",
+        "template": "BPicon-BP0.png"
     },
     "Flag_BP消耗icon_next": {
         "doc": "BP消耗icon，所有的TO_BP应当都在BP调整栏内",

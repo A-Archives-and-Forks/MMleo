@@ -418,7 +418,18 @@
             "cases": [
                 {
                     "name": "0BP",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "Flag_已在目标BP": {
+                            "roi": [
+                                532,
+                                570,
+                                305,
+                                130
+                            ],
+                            "recognition": "TemplateMatch",
+                            "template": "BPicon-BP0.png"
+                        }
+                    }
                 },
                 {
                     "name": "1BP",
