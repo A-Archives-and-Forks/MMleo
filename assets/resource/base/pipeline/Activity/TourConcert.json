@@ -578,6 +578,7 @@
         },
         "next": [
             "巡演星光奖励领取_flag四演出结束",
+            "巡演星光奖励领取_前往纪念音乐节地图",
             "巡演星光奖励领取_前往巡回演唱会地图",
             "Feat_巡演后领取星光奖励"
         ],
@@ -586,6 +587,7 @@
             "点击屏幕获取奖励",
             "OK_pt增加时弹出的奖励界面",
             "活动期间pt达标跳出的卡面领取",
+            "Click_正中下端_确认",
             "Click_星光ver"
         ]
     },
@@ -614,6 +616,22 @@
         "recognition": "OCR",
         "expected": [
             "前往巡回演唱"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": "Flag_TourMap"
+    },
+    "巡演星光奖励领取_前往纪念音乐节地图": {
+        "doc": "前往纪念音乐节地图",
+        "roi": [
+            790,
+            424,
+            372,
+            270
+        ],
+        "recognition": "OCR",
+        "expected": [
+            "前往纪念音乐"
         ],
         "action": "Click",
         "post_wait_freezes": 1000,
