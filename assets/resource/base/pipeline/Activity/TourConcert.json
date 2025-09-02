@@ -709,6 +709,19 @@
         "template": "难度上标_简单.png",
         "next": "Feat_难度调整_End"
     },
+    "for_reco_原唱_in_tc": {
+        "doc": "原唱组合识别",
+        "roi": [
+            0,
+            145,
+            662,
+            274
+        ],
+        "recognition": "OCR",
+        "expected": [
+            "使用原唱组合的成员完成第4曲"
+        ]
+    },
     "for_reco_last_in_tc": {
         "doc": "只是作为验证最后一首歌的辅助手段,相等就设置10，不等不管，优先级依旧是顺位为最高",
         "roi": [

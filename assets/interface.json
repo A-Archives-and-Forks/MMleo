@@ -427,6 +427,7 @@
                                 130
                             ],
                             "recognition": "TemplateMatch",
+                            "threshold": 0.95,
                             "template": "BPicon-BP0.png"
                         }
                     }
