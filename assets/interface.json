@@ -3,6 +3,8 @@
     "url": "https://github.com/fictionalflaw/MMleo",
     "mirrorchyan_rid": "MMleo",
     "mirrorchyan_multiplatform": true,
+    "mfa_min_version": "v1.5.3",
+    "mfa_max_version": "v1.5.3",
     "controller": [
         {
             "name": "安卓端",
