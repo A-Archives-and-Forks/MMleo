@@ -292,11 +292,9 @@
         "next": []
     },
     "Feat_BP调整_true": {
-        "doc": "存在BPicon才会进入调整，不存在直接开始演唱会",
+        "doc": "存在BPicon才会进入调整，不存在直接开始演唱会,从interrupt改到next了，BPicon识别不了就直接进调整",
         "next": [
-            "Flag_已在目标BP"
-        ],
-        "interrupt": [
+            "Flag_已在目标BP",
             "BP调整_BP消耗icon"
         ]
     },
@@ -327,11 +325,12 @@
             532,
             570,
             305,
-            78
+            130
         ],
         "recognition": "TemplateMatch",
-        "threshold": 0.95,
-        "template": "BPicon-BP0.png"
+        "threshold": 0.99,
+        "template": "BPicon-BP0.png",
+        "next":"Feat_BP调整_End"
     },
     "Flag_已在目标BP-0": {
         "doc": "interface中更改,'BP -O'、'BP -1'、'BP- 3'、'BP- 6'、'BP-10'、'BP-30'",
@@ -342,8 +341,21 @@
             130
         ],
         "recognition": "TemplateMatch",
-        "threshold": 0.95,
+        "threshold": 0.99,
         "template": "BPicon-BP0.png"
+    },
+        "Flag_已在目标BP-1": {
+        "doc": "interface中更改,'BP -O'、'BP -1'、'BP- 3'、'BP- 6'、'BP-10'、'BP-30'",
+        "roi": [
+            532,
+            570,
+            305,
+            130
+        ],
+        "recognition": "TemplateMatch",
+        "count": 110,
+        "threshold": 0.97,
+        "template": "BP消耗-0.png"
     },
     "Flag_BP消耗icon_next": {
         "doc": "BP消耗icon，所有的TO_BP应当都在BP调整栏内",
@@ -420,7 +432,21 @@
         ],
         "action": "Click",
         "post_wait_freezes": 1000,
-        "next": "Click_正中下端_关闭"
+        "next": "BP调整_Click_正中下端_关闭"
+    },
+        "BP调整_Click_正中下端_关闭": {
+        "doc": "出现在屏幕正中的弹窗，下端中央有关闭按钮",
+        "roi": [
+            490,
+            474,
+            294,
+            188
+        ],
+        "recognition": "OCR",
+        "expected": "^\\关闭$",
+        "action": "Click",
+        "post_wait_freezes": 2000,
+        "next":["Feat_BP调整_End"]
     },
     "BP调整_下划": {
         "roi": [

@@ -3,8 +3,8 @@
     "url": "https://github.com/fictionalflaw/MMleo",
     "mirrorchyan_rid": "MMleo",
     "mirrorchyan_multiplatform": true,
-    "mfa_min_version": "v1.5.3",
-    "mfa_max_version": "v1.5.3",
+    "mfa_min_version": "v1.6.9",
+    "mfa_max_version": "v1.6.9",
     "controller": [
         {
             "name": "安卓端",
@@ -112,7 +112,7 @@
                         "StartTheConcert_星光ver"
                     ]
                 },
-                "Flag_已在目标BP": {
+                "Feat_BP调整_End": {
                     "next": [
                         "StartTheConcert_星光ver"
                     ]

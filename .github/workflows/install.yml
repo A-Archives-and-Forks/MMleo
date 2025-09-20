@@ -20,8 +20,8 @@ on:
   workflow_dispatch:
 
 env:
-  MaaFw_tag: v4.4.0
-  MFA_tag: v1.5.3
+  MaaFw_tag: v4.5.3
+  MFA_tag: v1.6.9
   app_name: MMleo
 
 permissions:
