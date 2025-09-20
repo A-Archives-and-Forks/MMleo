@@ -422,14 +422,6 @@
                     "name": "0BP",
                     "pipeline_override": {
                         "Flag_已在目标BP": {
-                            "roi": [
-                                532,
-                                570,
-                                305,
-                                130
-                            ],
-                            "recognition": "TemplateMatch",
-                            "threshold": 0.95,
                             "template": "BPicon-BP0.png"
                         }
                     }
@@ -438,11 +430,7 @@
                     "name": "1BP",
                     "pipeline_override": {
                         "Flag_已在目标BP": {
-                            "expected": [
-                                "BP -1",
-                                "BP-1",
-                                "^\\-1$"
-                            ]
+                            "template": "BPicon-BP1.png"
                         },
                         "BP调整_TO": {
                             "expected": [
@@ -455,11 +443,7 @@
                     "name": "2BP",
                     "pipeline_override": {
                         "Flag_已在目标BP": {
-                            "expected": [
-                                "BP -2",
-                                "BP-2",
-                                "^\\-2$"
-                            ]
+                            "template": "BPicon-BP2.png"
                         },
                         "BP调整_TO": {
                             "expected": [
@@ -472,11 +456,7 @@
                     "name": "3BP",
                     "pipeline_override": {
                         "Flag_已在目标BP": {
-                            "expected": [
-                                "BP -3",
-                                "BP-3",
-                                "^\\-3$"
-                            ]
+                            "template": "BPicon-BP3.png"
                         },
                         "BP调整_TO": {
                             "expected": [

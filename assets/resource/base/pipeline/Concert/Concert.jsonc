@@ -300,7 +300,28 @@
             "BP调整_BP消耗icon"
         ]
     },
-    "Flag_已在目标BP": {
+    //已废弃，选用了template方案
+    // "Flag_已在目标BP": {
+    //     "doc": "在interface中拿后续模版覆盖,这个位置中BP和-中间会分框，增加适配",
+    //     "roi": [
+    //         532,
+    //         570,
+    //         305,
+    //         78
+    //     ],
+    //     "recognition": "OCR",
+    //     "expected": [
+    //         "BP -0",
+    //         "BP-0",
+    //         "^\\-0$"
+    //     ],
+    //     "only_rec": true,
+    //     "replace": [
+    //         "O",
+    //         "0"
+    //     ]
+    // },
+        "Flag_已在目标BP": {
         "doc": "在interface中拿后续模版覆盖,这个位置中BP和-中间会分框，增加适配",
         "roi": [
             532,
@@ -308,17 +329,9 @@
             305,
             78
         ],
-        "recognition": "OCR",
-        "expected": [
-            "BP -0",
-            "BP-0",
-            "^\\-0$"
-        ],
-        "only_rec": true,
-        "replace": [
-            "O",
-            "0"
-        ]
+        "recognition": "TemplateMatch",
+        "threshold": 0.95,
+        "template": "BPicon-BP0.png"
     },
     "Flag_已在目标BP-0": {
         "doc": "interface中更改,'BP -O'、'BP -1'、'BP- 3'、'BP- 6'、'BP-10'、'BP-30'",
