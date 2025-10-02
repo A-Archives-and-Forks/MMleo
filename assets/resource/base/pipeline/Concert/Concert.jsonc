@@ -345,7 +345,7 @@
         "template": "BPicon-BP0.png"
     },
         "Flag_已在目标BP-1": {
-        "doc": "interface中更改,'BP -O'、'BP -1'、'BP- 3'、'BP- 6'、'BP-10'、'BP-30'",
+        "doc": "测试用",
         "roi": [
             532,
             570,

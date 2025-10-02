@@ -13,7 +13,7 @@ sys.path.append(script_dir)
 
 from configure import configure_ocr_model
 
-working_dir = Path(__file__).parent
+working_dir = Path(__file__).parent.parent.parent
 install_path = working_dir / Path("install")
 version = len(sys.argv) > 1 and sys.argv[1] or "v0.0.1"
 
@@ -56,6 +56,7 @@ def install_resource():
         interface = json.load(f)
 
     interface["version"] = version
+    interface["custom_title"] = f"MMleo {version}"
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         json.dump(interface, f, ensure_ascii=False, indent=4)
@@ -87,8 +88,12 @@ def install_agent():
 
     if sys.platform.startswith("win"):
         interface["agent"]["child_exec"] = r"{PROJECT_DIR}/python/python.exe"
+    elif sys.platform.startswith("darwin"):
+        interface["agent"]["child_exec"] = r"{PROJECT_DIR}/python/bin/python3"
+    elif sys.platform.startswith("linux"):
+        interface["agent"]["child_exec"] = r"python3"
 
-    interface["agent"]["child_args"] = [r"{PROJECT_DIR}/agent/main.py", "-u"]
+    interface["agent"]["child_args"] = ["-u", r"{PROJECT_DIR}/agent/main.py"]
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         json.dump(interface, f, ensure_ascii=False, indent=4)
