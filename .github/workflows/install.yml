@@ -301,8 +301,8 @@ jobs:
         with:
           repository: MaaXYZ/MaaFramework
           fileName: "MAA-linux-${{ matrix.arch }}*"
-          tag: "${{ env.MFA_tag }}"
-          out-file-path: "deps"
+          tag: "${{ env.MaaFw_tag }}"
+          out-file-path: "deps" 
           extract: true
 
       - name: Download MFAAvalonia for Linux
