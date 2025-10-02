@@ -211,8 +211,8 @@ jobs:
         working-directory: launcher
         shell: bash
         run: |
-          ./install/python/python.exe -m pip install pyinstaller
-          ./install/python/python.exe -m PyInstaller --onefile --icon=../logo.ico --windowed MMleo.py
+          ../install/python/python.exe -m pip install pyinstaller
+          ../install/python/python.exe -m PyInstaller --onefile --icon=../logo.ico --windowed MMleo.py
 
 
       
