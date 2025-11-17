@@ -10,7 +10,7 @@
         ],
         "expected": [
             "演唱会热度",
-            "通关"
+            "CLEAR"
         ],
         "action": "Custom",
         "custom_action": "TargetAreaSearchAndSave"
@@ -67,9 +67,9 @@
         "recognition": "OCR",
         "roi": [
             609,
-            175,
-            61,
-            32
+            174,
+            60,
+            34
         ],
         "expected": [
             "暂停"
@@ -77,13 +77,13 @@
         "only_rec": true
     },
     "for_stop_in_concert": {
-        "doc": "打歌中终止，使用精确ocr",
+        "doc": "打歌中终止，使用精确ocr，二级界面，是选择中止演唱会后出现的",
         "recognition": "OCR",
         "roi": [
-            563,
-            274,
-            155,
-            39
+            571,
+            349,
+            135,
+            40
         ],
         "expected": [
             "终止演唱会"
@@ -124,10 +124,10 @@
         "doc": "打歌后结束，使用精确ocr，加入interrupt列表，不在打歌前界面会依次识别interrupt可能内容,此处interrup列表除了故事列表都应是不可更改的单层节点",
         "recognition": "OCR",
         "roi": [
-            747,
-            599,
-            171,
-            71
+            788,
+            600,
+            176,
+            65
         ],
         "expected": [
             "歌曲奖励"
@@ -184,10 +184,10 @@
         "doc": "更新记录界面",
         "recognition": "OCR",
         "roi": [
-            699,
-            575,
-            182,
-            79
+            667,
+            535,
+            170,
+            72
         ],
         "expected": [
             "更新"
@@ -224,10 +224,10 @@
         "doc": "更新记录界面",
         "recognition": "OCR",
         "roi": [
-            699,
-            575,
-            182,
-            79
+            667,
+            535,
+            170,
+            72
         ],
         "expected": [
             "更新"
@@ -251,7 +251,7 @@
         "action": "Click"
     },
     "粉丝数up_NC": {
-        "doc": "点击继续后出现的粉丝数结算界面，识别特征是那个黄色的前往歌曲选择",
+        "doc": "点击继续后出现的粉丝数结算界面，识别特征是那个黄色的前往歌曲选择，（ui更新后部分情况下为继续，其他情况有包含）",
         "recognition": "OCR",
         "roi": [
             964,
@@ -266,17 +266,15 @@
         "action": "Click"
     },
     "活动奖励领取_NC": {
-        "doc": "活动奖励领取(比如lb的硬币领取)，一般建议在acitvity文件夹中定期维护",
-        "recognition": "OCR",
+        "doc": "活动奖励领取(比如lb的硬币领取)，一般建议在acitvity文件夹中定期维护，（转为正中下端关闭了，已做替换)",
         "roi": [
-            543,
-            543,
-            185,
-            77
+            490,
+            474,
+            294,
+            188
         ],
-        "expected": [
-            "OK"
-        ],
+        "recognition": "OCR",
+        "expected": "^\\关闭$",
         "pre_delay": 500,
         "action": "Click"
     },

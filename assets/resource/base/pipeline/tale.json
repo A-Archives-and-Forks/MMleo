@@ -164,13 +164,17 @@
         "timeout": 60000,
         "doc": "呼出菜单，启动跳过，但是要先点击",
         "roi": [
-            969,
-            640,
-            44,
-            44
+            909,
+            578,
+            156,
+            142
         ],
         "recognition": "TemplateMatch",
-        "template": "talestar1.png",
+        "template": [
+            "talestar1.png",
+            "talestar2.png",
+            "talestar3.png"
+        ],
         "threshold": 0.6,
         "action": "Click",
         "next": "ClickMenuIntale"
@@ -289,13 +293,17 @@
         "timeout": 60000,
         "doc": "为了继续跳过必要的点击操作,注意，后面不接其他的,这是循环末尾",
         "roi": [
-            969,
-            640,
-            44,
-            44
+            909,
+            578,
+            156,
+            142
         ],
         "recognition": "TemplateMatch",
-        "template": "talestar1.png",
+        "template": [
+            "talestar1.png",
+            "talestar2.png",
+            "talestar3.png"
+        ],
         "threshold": 0.6,
         "action": "Click"
     }

@@ -47,7 +47,7 @@
             0
         ],
         "recognition": "OCR",
-        "expected": "点击屏幕",
+        "expected": "TOUCH SCREEN",
         "pre_wait_freezes": 2000,
         "action": "Click",
         "next": [
@@ -60,7 +60,7 @@
         ]
     },
     "跳过，在招募结算": {
-        "doc": "跳过",
+        "doc": "跳过，已适配新ui",
         "roi": [
             1073,
             0,
@@ -68,7 +68,7 @@
             121
         ],
         "recognition": "OCR",
-        "expected": "跳过",
+        "expected": "SKIP",
         "action": "Click",
         "next": [
             "OK,在招募结算"
@@ -156,6 +156,7 @@
             1
         ],
         "post_wait_freezes": {
+            "time": 1000,
             "target": [
                 7,
                 103,

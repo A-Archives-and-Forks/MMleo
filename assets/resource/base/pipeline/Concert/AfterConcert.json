@@ -47,20 +47,24 @@
             "Flag_TourMap"
         ],
         "interrupt": [
-            "Click_迷你对话ing",
-            "对话框_迷你对话ing"
+            "对话框_迷你对话ing",
+            "Click_迷你对话ing"
         ]
     },
     "FlagandAction_迷你对话_2": {
         "doc": "动画式迷你对话",
         "roi": [
-            969,
-            640,
-            44,
-            44
+            909,
+            578,
+            156,
+            142
         ],
         "recognition": "TemplateMatch",
-        "template": "talestar1.png",
+        "template": [
+            "talestar1.png",
+            "talestar2.png",
+            "talestar3.png"
+        ],
         "threshold": 0.6,
         "action": "Click",
         "next": [
@@ -70,19 +74,23 @@
             "Flag_TourMap"
         ],
         "interrupt": [
-            "Click_迷你对话ing",
-            "对话框_迷你对话ing"
+            "对话框_迷你对话ing",
+            "Click_迷你对话ing"
         ]
     },
     "OK_pt增加时弹出的奖励界面": {
+        "doc": "ui更新后转为下一歩,调用太多，暂不改名字",
         "roi": [
-            905,
-            548,
-            375,
-            172
+            1026,
+            566,
+            196,
+            139
         ],
         "recognition": "OCR",
-        "expected": "OK",
+        "expected": [
+            "下一步",
+            "OK"
+        ],
         "action": "Click"
     },
     "活动期间pt达标跳出的卡面领取": {
@@ -116,14 +124,18 @@
     "Click_迷你对话ing": {
         "doc": "在对话框未出来前一直click",
         "roi": [
-            969,
-            640,
-            44,
-            44
+            909,
+            578,
+            156,
+            142
         ],
         "recognition": "TemplateMatch",
         "threshold": 0.6,
-        "template": "talestar1.png",
+        "template": [
+            "talestar1.png",
+            "talestar2.png",
+            "talestar3.png"
+        ],
         "action": "Click"
     },
     "Flag_星光演唱会": {

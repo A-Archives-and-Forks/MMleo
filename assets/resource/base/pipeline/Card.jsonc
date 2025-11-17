@@ -205,7 +205,7 @@
         "next": "Card_等级提升_确定"
     },
     "Card_等级提升_确定": {
-        "doc": "确定按钮，没做亮起识别",
+        "doc": "确定按钮，没做亮起识别，新ui变成OK了",
         "roi": [
             826,
             530,
@@ -213,7 +213,7 @@
             187
         ],
         "recognition": "OCR",
-        "expected": "确定",
+        "expected": "OK",
         "action": "Click",
         "post_wait_freezes": {
             "time":2000,
@@ -291,13 +291,13 @@
         "recognition": "ColorMatch",
         "upper": [
             255,
-            41,
-            106
+            54,
+            117
         ],
         "lower": [
             255,
-            41,
-            106
+            54,
+            117
         ],
         "count": 150,
         "connected": true,
@@ -306,7 +306,7 @@
         "next":"Card_偶像之路_学习"
     },
     "Card_偶像之路_学习": {
-        "doc": "偶像之路，学习按钮",
+        "doc": "偶像之路，学习按钮,新ui变成解锁了",
         "roi": [
             890,
             542,
@@ -314,7 +314,7 @@
             178
         ],
         "recognition": "OCR",
-        "expected": "学习",
+        "expected": ["解锁"],
         "action": "Click",
         "post_wait_freezes": 2000,
         "next":"Card_偶像之路_退出"

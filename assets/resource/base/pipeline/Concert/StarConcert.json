@@ -151,10 +151,10 @@
     "选择消耗通行证的数量": {
         "doc": "只做识别用，不推荐加动作（不会真有人喜欢5倍通行证打A吧）",
         "roi": [
-            238,
-            75,
-            810,
-            549
+            419,
+            0,
+            442,
+            136
         ],
         "recognition": "OCR",
         "expected": "选择消耗通行证的数量",
@@ -164,10 +164,10 @@
     },
     "通行证确认_开始演唱会": {
         "roi": [
-            638,
-            506,
-            230,
-            108
+            651,
+            548,
+            240,
+            139
         ],
         "recognition": "OCR",
         "expected": "开始演唱会",
@@ -208,15 +208,46 @@
             "点击屏幕获取奖励",
             "OK_pt增加时弹出的奖励界面",
             "活动期间pt达标跳出的卡面领取",
-            "Click_星光ver"
+            "Click_星光ver",
+            "礼包提示_REC_星光"
         ]
+    },
+    "礼包提示_REC_星光": {
+        "doc": "用于误点击未完成的礼包的提示界面的退出",
+        "roi": [
+            217,
+            206,
+            787,
+            263
+        ],
+        "recognition": "OCR",
+        "expected": [
+            "可获得积分奖励",
+            "开启后可以获得随机数量",
+            "开启后可以获得随机颜色"
+        ],
+        "next": "礼包提示_退出_星光"
+    },
+    "礼包提示_退出_星光": {
+        "doc": "识别该界面的确认按钮",
+        "roi": [
+            511,
+            482,
+            247,
+            164
+        ],
+        "recognition": "OCR",
+        "expected": [
+            "确认"
+        ],
+        "action": "Click"
     },
     "for_search_music_in_star": {
         "recognition": "Custom",
         "custom_recognition": "SearchMusic"
     },
     "找回昨日次数": {
-        "doc": "不接next，只做内层再循环结束标志",
+        "doc": "不接next，只做内层再循环结束标志，新ui已适配",
         "roi": [
             142,
             582,
@@ -225,7 +256,7 @@
         ],
         "recognition": "OCR",
         "expected": [
-            "找回昨日次数"
+            "找回昨日次"
         ],
         "action": "Click",
         "post_wait_freezes": {
@@ -292,7 +323,7 @@
         ],
         "expected": [
             "演唱会热度",
-            "通关"
+            "CLEAR"
         ],
         "action": "Custom",
         "custom_action": "MusicPlayer",

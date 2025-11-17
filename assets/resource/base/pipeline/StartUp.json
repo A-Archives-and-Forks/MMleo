@@ -32,10 +32,10 @@
     "Flag_Main": {
         "doc": "主界面标识，必须具备唯一性",
         "roi": [
-            129,
-            7,
-            43,
-            40
+            93,
+            0,
+            181,
+            87
         ],
         "recognition": "OCR",
         "expected": "等级"
@@ -82,26 +82,26 @@
     "CallOutMenu": {
         "doc": "右上角菜单",
         "roi": [
-            1174,
-            5,
-            100,
-            99
+            1145,
+            0,
+            135,
+            126
         ],
-        "recognition": "OCR",
-        "expected": "菜单",
+        "recognition": "TemplateMatch",
+        "template": "菜单icon.png",
         "action": "Click",
         "post_wait_freezes": 1000
     },
     "BackMainByMenu": {
         "doc": "点击右上角菜单",
         "roi": [
-            1174,
-            5,
-            100,
-            99
+            1145,
+            0,
+            135,
+            126
         ],
-        "recognition": "OCR",
-        "expected": "菜单",
+        "recognition": "TemplateMatch",
+        "template": "菜单icon.png",
         "action": "Click",
         "post_wait_freezes": 1000,
         "next": [
@@ -111,13 +111,13 @@
     "BackMainInMenu": {
         "doc": "点击主页按钮，在菜单中",
         "roi": [
-            1084,
-            16,
-            74,
-            75
+            1050,
+            0,
+            162,
+            131
         ],
-        "recognition": "OCR",
-        "expected": "主页",
+        "recognition": "TemplateMatch",
+        "template": "主页icon.png",
         "action": "Click",
         "post_wait_freezes": {
             "time": 2000,

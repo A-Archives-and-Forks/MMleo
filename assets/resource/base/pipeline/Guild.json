@@ -115,7 +115,10 @@
         ],
         "recognition": "OCR",
         "expected": "已获得协会每日任务奖励",
-        "next": "OK_屏幕中央"
+        "next": [
+            "Click_正中下端_关闭",
+            "OK_屏幕中央"
+        ]
     },
     "Flag_Guild": {
         "doc": "已在协会界面的标志",

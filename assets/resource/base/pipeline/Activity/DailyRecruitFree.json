@@ -2,10 +2,10 @@
     "ScoutFreeInMain": {
         "doc": "在主界面寻找免费送抽字样，找到就执行后续，没找到说明抽了，卡死，继续下个任务就好",
         "roi": [
-            976,
-            539,
-            171,
-            169
+            894,
+            500,
+            169,
+            142
         ],
         "recognition": "OCR",
         "expected": [
@@ -39,8 +39,7 @@
         ],
         "recognition": "OCR",
         "expected": [
-            "限定每日1次！",
-            "免费1次"
+            "免费招募"
         ],
         "action": "Click",
         "target_offset": [

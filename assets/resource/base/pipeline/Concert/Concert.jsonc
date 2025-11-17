@@ -411,27 +411,31 @@
     },
     "BP调整_TO": {
         "doc": "不需要,识别范围为BP消耗弹窗内，找其他BP通过上下划设置出口",
-        "roi": [
-            276,
-            156,
-            181,
-            400
-        ],
-        "recognition": "OCR",
-        "expected": [
-            "消耗OBP",
-            "消耗0BP",
-            "^\\0BP$",
-            "^\\OBP$"
-        ],
+        // "roi": [
+        //     276,
+        //     156,
+        //     181,
+        //     400
+        // ],
+        "roi": [711,176,121,383],
+        "recognition": "TemplateMatch",
+        // "recognition": "OCR",
+        // "expected": [
+        //     "消耗OBP",
+        //     "消耗0BP",
+        //     "^\\0BP$",
+        //     "^\\OBP$"
+        // ],
+        "template": "消耗0BP.png",
         "target_offset": [
-            520,
+            100,
             0,
             0,
             0
         ],
         "action": "Click",
         "post_wait_freezes": 1000,
+        "threshold":0.9,
         "next": "BP调整_Click_正中下端_关闭"
     },
         "BP调整_Click_正中下端_关闭": {
@@ -486,19 +490,22 @@
         ]
     },
     "Flag_BP调整界面最顶端_next": {
-        "roi": [
-            283,
-            172,
-            163,
-            95
-        ],
-        "recognition": "OCR",
-        "expected": [
-            "消耗OBP",
-            "消耗0BP",
-            "^\\0BP$",
-            "^\\OBP$"
-        ],
+        // "roi": [
+        //     283,
+        //     172,
+        //     163,
+        //     95
+        // ],
+        // "recognition": "OCR",
+        // "expected": [
+        //     "消耗OBP",
+        //     "消耗0BP",
+        //     "^\\0BP$",
+        //     "^\\OBP$"
+        // ],
+        "roi": [685,132,188,180],
+        "recognition": "TemplateMatch",
+        "template": "消耗0BP.png",
         "next": [
             "BP调整_TO",
             "BP调整_上划"
@@ -580,32 +587,30 @@
         "next": "调整_寻找目标编队"
     },
     "调整_Click左箭头": {
+        "doc":"改成在编队界面点击目标位置了",
         "roi": [
+            29,
             0,
-            248,
-            158,
-            191
+            279,
+            140
         ],
-        "recognition": "TemplateMatch",
-        "template": [
-            "编队_左箭头.png"
-        ],
-        "threshold": 0.6,
-        "action": "Click"
+        "recognition": "OCR",
+        "expected": "^\\组合选择$",
+        "action": "Click",
+        "target": [5,312,62,87]
     },
     "调整_Click右箭头": {
+        "doc":"改成在编队界面点击目标位置了",
         "roi": [
-            1126,
-            252,
-            154,
-            184
+            29,
+            0,
+            279,
+            140
         ],
-        "recognition": "TemplateMatch",
-        "template": [
-            "编队_右箭头.png"
-        ],
-        "threshold": 0.6,
-        "action": "Click"
+        "recognition": "OCR",
+        "expected": "^\\组合选择$",
+        "action": "Click",
+        "target": [1210,309,65,85]
     },
     "StartTheConcert": {
         "roi": [
@@ -621,13 +626,13 @@
     "ComeToConcert_ByMenu": {
         "doc": "点击右上角菜单",
         "roi": [
-            1174,
-            5,
-            100,
-            99
+            1145,
+            0,
+            135,
+            126
         ],
-        "recognition": "OCR",
-        "expected": "菜单",
+        "recognition": "TemplateMatch",
+        "template": "菜单icon.png",
         "action": "Click",
         "next": [
             "ComeToConcert"
@@ -635,12 +640,7 @@
     },
     "ComeToConcert": {
         "doc": "点击演唱会图标，主界面也在相同位置",
-        "roi": [
-            1085,
-            439,
-            189,
-            176
-        ],
+        "roi": [1022,472,258,248],
         "recognition": "OCR",
         "expected": "演唱会",
         "action": "Click",
