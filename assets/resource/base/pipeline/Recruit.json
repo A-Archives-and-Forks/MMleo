@@ -85,7 +85,16 @@
         "recognition": "OCR",
         "expected": "OK",
         "action": "Click",
-        "pre_wait_freezes": 500
+        "pre_wait_freezes": 500,
+        "post_wait_freezes": {
+            "time": 1000,
+            "target": [
+                7,
+                103,
+                221,
+                406
+            ]
+        }
     },
     "Scout1InAudition": {
         "doc": "在海选招募招募1次",

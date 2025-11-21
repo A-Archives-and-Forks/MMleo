@@ -31,7 +31,24 @@
                 65
             ]
         },
-        "next": "Flag_Guild_next"
+        "next": [
+            "Flag_Guild_next",
+            "协会签到_弹出界面"
+        ]
+    },
+    "协会签到_弹出界面": {
+        "roi": [
+            510,
+            10,
+            265,
+            179
+        ],
+        "recognition": "OCR",
+        "expected": "协会签到",
+        "next": [
+            "NO_协会签到",
+            "协会签到"
+        ]
     },
     "协会签到": {
         "roi": [
@@ -99,6 +116,15 @@
         "template": "聊天框.png",
         "green_mask": true,
         "action": "Click",
+        "post_wait_freezes": {
+            "time": 2000,
+            "target": [
+                1071,
+                655,
+                209,
+                65
+            ]
+        },
         "interrupt": [
             "SKIP",
             "点击屏幕获取奖励",

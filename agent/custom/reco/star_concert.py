@@ -24,8 +24,8 @@ class SearchMusic(CustomRecognition):
             "点击屏幕获取奖励",
             "OK_pt增加时弹出的奖励界面",
             "活动期间pt达标跳出的卡面领取",
-            "Click_星光ver",
-            "礼包提示_REC_星光"
+            "礼包提示_REC_星光",
+            "Click_星光ver"
         ] 
         flag=0
 

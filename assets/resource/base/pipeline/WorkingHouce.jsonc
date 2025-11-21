@@ -46,15 +46,18 @@
   },
   "WH_偶像工作": {
     "doc": "单击偶像工作图标",
-    "recognition": "OCR",
-    "roi": [
-      1077,
-      537,
-      203,
-      151
-    ],
+    // "recognition": "OCR",
+    // "roi": [
+    //   1077,
+    //   537,
+    //   203,
+    //   151
+    // ],
+    // "expected": "^\\偶像工作$",
+    "recognition": "FeatureMatch",
+    "template": "偶像工作icon.png",
+    "count": 80,
     "action": "Click",
-    "expected": "^\\偶像工作$",
     "post_wait_freezes": {
       "time": 2000,
       "target": [
@@ -226,10 +229,10 @@
     ],
     "interrupt":"参加工作成员_连续工作"
   },
-    "Click_辅助工作": {
+  "Click_辅助工作": {
     "doc": "识别OFF按钮",
     "recognition": "TemplateMatch",
-    "roi": [1065,255,229,211],
+    "roi": [1064,54,216,336],
     "pre_wait_freezes":2000,
     "action": "Click",
     "template": "辅助工作_OFF.png",
@@ -239,7 +242,19 @@
       "Click_推荐编队"
     ]
   },
-      "Click_推荐编队": {
+  "辅助工作_次数用尽": {
+    "doc": "次数用尽template",
+    "recognition": "TemplateMatch",
+    "roi": [1064,54,216,336],
+    "template": "辅助工作_次数用尽.png",
+    "focus": "辅助工作次数用尽，将以不启用辅助工作状态执行后续操作...",
+    "pre_wait_freezes":1000,
+    "next": [
+      "Click_推荐编队"
+    ]
+  },
+
+  "Click_推荐编队": {
     "doc": "识别推荐编队",
     "recognition": "OCR",
     "roi": [1023,376,257,152],
@@ -276,20 +291,15 @@
   "参加工作成员_消耗检测": {
     "doc": "消耗检测",
     "recognition": "OCR",
-    "roi": [344,318,549,167],
+    "roi": [47,399,1174,160],
     "expected": "完成\\d*次连续工作预计消耗\\d*工作券、0BP",
     "next":"参加工作成员_开始连续工作"
   },
   "参加工作成员_开始连续工作": {
-    "timeout": 600000,
+    "timeout": 900000,
     "doc": "没做BP调整和次数调整,postwait尽可能长，5s吧",
     "recognition": "OCR",
-    "roi": [
-      615,
-      555,
-      250,
-      134
-    ],
+    "roi": [606,528,333,191],
     "action": "Click",
     "expected": "^\\开始连续工作$",
     "post_wait_freezes": 5000,
@@ -304,8 +314,8 @@
   },
   "选择偶像工作_每日工作_最后": {
     "doc": "识别最后格子没打钩的状态然后打钩",
-        "recognition": "TemplateMatch",
-    "roi": [200,535,445,85],
+    "recognition": "TemplateMatch",
+    "roi": [202,599,446,87],
     "action": "Click",
     "template": "偶像工作_不打勾.png",
     "next": [
@@ -368,7 +378,28 @@
       ]
     },
     "next":"拜访事务所_随机拜访",
-    "interrupt":["Click_正中下端_关闭","Start_拜访事务所"]
+    "interrupt":["Click_正中下端_关闭","Start_拜访事务所_NC"]
+  },
+    "Start_拜访事务所_NC": {
+    "doc": "找寻拜访事务所入口,纯interrupt会造成嵌套，回溯时会回到循环内,所以后面不接next就行",
+    "recognition": "OCR",
+    "roi": [
+      1083,
+      128,
+      197,
+      130
+    ],
+    "expected": "拜访事务所",
+    "action": "Click",
+    "post_wait_freezes": {
+      "time": 2000,
+      "target": [
+        1071,
+        655,
+        209,
+        65
+      ]
+    }
   },
     "拜访事务所_随机拜访": {
     "doc": "找寻随机拜访入口,新ui改成随机访问了",

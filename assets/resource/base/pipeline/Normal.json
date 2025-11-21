@@ -41,6 +41,7 @@
         "recognition": "OCR",
         "expected": "会员",
         "action": "Click",
+        "post_wait_freezes": 1000,
         "next": "DiamondInVip",
         "on_error": [
             "Error_无法领取月卡"

@@ -641,8 +641,9 @@
     "ComeToConcert": {
         "doc": "点击演唱会图标，主界面也在相同位置",
         "roi": [1022,472,258,248],
-        "recognition": "OCR",
-        "expected": "演唱会",
+        "recognition": "FeatureMatch",
+        "template": "演唱会icon.png",
+        "count": 100,
         "action": "Click",
         "post_wait_freezes": {
             "time": 2000,

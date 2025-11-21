@@ -188,7 +188,7 @@
             61
         ],
         "recognition": "TemplateMatch",
-        "template": "菜单icon.png",
+        "template": "菜单icon_tale.png",
         "action": "Click",
         "next": "Flag_EndReading",
         "interrupt": "SkipInTale"
